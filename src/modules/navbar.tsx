@@ -1,4 +1,5 @@
 import Button from "@/component/button";
+import clsx from "clsx";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 
@@ -9,7 +10,14 @@ export default function Navbar() {
   const { data: session } = useSession();
 
   return (
-    <main className="flex items-center justify-between py-6 max-md:py-3 px-16 max-md:px-6 border-b-slate-300 border-b sticky top-0">
+    <main
+      className={clsx(
+        "flex items-center justify-between",
+        "py-6 max-md:py-3 px-16 max-md:px-6",
+        "border-b-slate-300 border-b",
+        "sticky top-0"
+      )}
+    >
       <Link href="/">Home</Link>
       <div className="flex gap-2 items-center">
         {session ? (
